@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><button id="btn">클릭</button></div> 
+
+    <img src="images/java1.png" alt="img1" width="300px" height="300px">
+    <br>
+
+</body>
+</html>
+
+<script>
+     $(function() {
+        $("#btn").on("click", function(){
+           var src = $("img").attr("src");  // getter
+           console.log(src);
+           $("img").attr("src" , "images/java2.png");   // setter
+                // src 에 "image~~" 를 넣어준다는 의미
+        })
+    })
+</script>

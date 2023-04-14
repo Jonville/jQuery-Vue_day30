@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>자바</li>
+        <li>데이터베이스</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+        <li>제이쿼리</li>
+        <li>JSP</li>
+    </ul>
+    <button>클릭</button>
+    <div id="text"></div>
+</body>
+</html>
+
+<script>
+
+    // getElementById = $("#id") 
+
+    $(function () {
+        $("button").on("click", function(){
+            $("li:has(h3)").css("color","red");     
+            $("li:last").css("color","red");   
+
+            // has(요소) : 그 요소를 가진것
+            // eq(n) : 선택한 요소에서 인덱스가 n인 요소
+            // gt(n) : 인덱스 n보다 큰 애들
+            // lt(n) : 인덱스 n보다 작은 애들
+            // odd : 홀수 (index 기준으로)
+            // even : 짝수 (index 기준으로)
+            // first , last : 첫번째, 마지막
+        })
+    });
+
+</script>

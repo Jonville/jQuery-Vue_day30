@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      margin-bottom:30px;
+    }
+    #rCount, #cCount {
+      width:30px;
+      height:20px;
+      text-align: center;
+    }
+    button {
+      margin-left:10px;
+    }
+    table {
+      width:300px;      
+    }
+    table, td {
+      border:1px solid #ccc;
+      border-collapse: collapse;
+    }
+    td {
+      padding:10px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" id="rCount" value="1">행 
+    <input type="text" id="cCount" value="1">열    
+    <button onclick="drawTable(); return false;">작성</button>
+  </form>
+  <div id="contents"></div>
+
+  <script>
+    function drawTable() {
+      var rCount = document.querySelector("#rCount").value; // 행 값 가져오기
+      var cCount = document.querySelector("#cCount").value; // 열 값 가져오기
+
+      var newTable = document.createElement("table"); // 테이블 만들기 위해 테이블 태그 먼저 작성
+      for(i = 0; i < rCount; i++) {
+        var newRow = document.createElement("tr"); //하나의 행에 여러개의 열이 올 수 있으므로 먼저 행 한개당 tr태그 생성
+        for(j = 0; j < cCount; j++) {
+          var newCell = document.createElement("td"); // 열의 수만큼 반복 하면서 td태그 넣기 
+          var cellText = document.createTextNode(i + ", " + j); // 테이블 안쪽에 좌표 값 출력
+          newCell.appendChild(cellText); // 열 안에 먼저 텍스트 넣고
+          newRow.appendChild(newCell); // tr 안에 자식 요소로 td태그 넣기
+        }
+        newTable.appendChild(newRow);  // table 태그안에 tr 태그 넣기
+      }
+      var contents = document.querySelector("#contents"); // contents 아이디를 가진 객체 가져오기
+      contents.appendChild(newTable); // 해당 객체 안에 넣기
+    }
+  </script>
+</body>
+</html>

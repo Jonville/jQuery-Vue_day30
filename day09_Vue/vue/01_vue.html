@@ -1,0 +1,55 @@
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    .active{
+        color:red;
+    }
+</style>
+<body>      
+
+    <div id="app">  <!-- Vue 는 id가 app 안에서만 사용가능함-->
+        <h1 v-if="age >= 40">{{age}}</h1> <!-- v- 를 붙여줘야함 vinding -->
+        <h1 v-if="grade >= 90" style="color:red">A</h1>
+        <h1 v-else-if="grade >= 80" style="color:blue">B</h1>
+        <h1 v-else-if="grade >= 70" style="color:yellow">C</h1>
+        <h1 v-else-if="grade >= 60" style="color:green">D</h1>
+        <h1 v-else style="color:gray">F</h1>
+
+        <label>점수입력 : <input type="text" id="tt" v-model="inGrade"></label> 
+        <!-- v-model 은 실시간으로 데이터를 받음 -->
+        <button @click="fnAge()">클릭</button>    <!-- js에서 onclick -->
+
+    </div>      
+
+</body>
+</html>
+<script>
+
+    var app = new Vue({ // Vue는 data 는 (변수) , method 는 (함수) 로 나뉨
+    el: '#app',
+    data: {     // 전역변수 선언이라고 생각
+        name : "홍길동",    // hashMap 같은 형태 , map 구조라서 = 말고 : 를 씀
+        age : 30,
+        grade : 85,
+        inGrade : 0
+    }
+    , methods: {
+        fnAge : function() {    // 함수이름 : function() {}
+            console.log(this.name); // data 안에 변수에 접근할때는 this 를 씀
+            // this.age = 50;  // 전역변수 age 값을 바꿔줌 
+
+            // var tt = document.getElementById("tt")
+            // this.grade = tt.value;  
+
+            this.grade = this.inGrade;  // 이걸 제일 많이씀
+        }
+    }
+    , created: function () {    // 최초 로드될때 실행이 됨
+		
+	}
+});
+</script>

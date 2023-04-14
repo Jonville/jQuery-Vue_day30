@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>자바</li>
+        <li>데이터베이스</li>
+        <li>HTML/CSS/JAVASCRIPT</li>
+    </ul>
+    <button>클릭</button>
+    <div id="text"></div>
+</body>
+</html>
+
+<script>
+
+    // getElementById = $("#id") 
+
+    $(function () {
+        var list = $("li");     // list에 <li> 에있는 모든값들이 담김
+            $("button").on("click", function(){
+                for(var i = 0 ; i < list.length; i++){
+                    console.log(list[i]);
+                }
+                $("#text").text("li 태그는 현재 " + list.length + "개 입니다.");
+            })
+    });
+
+</script>

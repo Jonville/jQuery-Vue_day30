@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+	<div id="container">
+		<h1 id="heading">자바스크립트</h1>
+		<div id="prod-pic">
+			<img src="images/java1.png" alt="자바스크립트" id="firImg" width="200" height="200">
+			<div id="small-pic"> 
+				<img src="images/java2.png" class="small">
+				<img src="images/java3.jpg" class="small">
+				<img src="images/java4.png" class="small">
+	 	  </div>
+		</div>			
+		<div id="desc">
+			<ul>
+				<li>상품명 : 자바스크립트 책</li>
+				<li class="bluetext">판매가 : 2,000,000원</li>
+				<li>배송비 : 1,000,00원<br>(2,000,001원 이상 구매시 무료)</li>
+				<li>적립금 : 20원(0.0001%)</li>
+				<li>발간일 : 1999.12.31</li>
+				<button>장바구니 담기</button>
+			</ul>				
+			<a href="#" id="view" onclick="detail()">상세 설명 보기</a>				
+		</div>
+			
+		<div id="detail">									
+			<hr>
+			<h2>자바스크립트 책</h2>
+			<ul>
+				<li>출판사 : 구로디지털단지</li>
+				<li>지 역 : 서울</li>
+				<li>원 가 : 2,500,000원</li>
+				<li>판매가 : 2,000,000원</li>
+				<li>저 자 : 홍길동</li>
+				<li>문 의 : hong@naver.com</li>
+			</ul>
+			<h3>저자의 말</h3>
+			<p>자바스크립트의 모든것을 담기위해 노력했습니다. 속는셈 치고 구매해주세요.</p>
+			<h3>목차</h3>
+			<p>1. 자바스크립트 기초</p>
+			<p>2. 자바스크립트 심화</p>
+			<p>3. 자바스크립트 활용</p>
+		</div>
+	</div>
+
+	<script>
+		var img = document.getElementById("firImg"); // 첫번째(기본이미지) 객체
+		var smallPics = document.getElementsByClassName("small"); // 하단 영역 이미지 객체(3개)
+		
+		for(let i = 0; i < smallPics.length; i++) {
+			smallPics[i].addEventListener("click", changePic); // 순차적으로 접근하면서 이벤트 부착. 이벤트는 changePic 함수
+		}
+
+		function changePic() { // 이미지 클릭 했을 때 실행 되는 함수
+			var newPic = this.src; // 클릭 시점의 이미지 객체가 this 됨.
+			img.setAttribute("src", newPic); // 클릭한 이미지의 src 값을 firImg객체의 주소로 변경
+		}
+		
+		function detail(){ // 상세보기 눌렀을 때 해당 태그의 display 스타일을 block로 변경
+			var detail = document.getElementById("detail"); 
+			detail.style.display = "block";
+		}
+	</script>
+</body>
+</html>

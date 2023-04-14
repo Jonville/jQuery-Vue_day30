@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2 id="hello">안녕하세요~~~</h2>
+
+    <button>클릭</button>
+
+    <div id="text"></div>
+    
+</body>
+</html>
+
+<script>
+
+    $(function() {
+        $("button").on("click", function(){
+            var hello = $("#hello").html(); // 얘는 getter (값을 가져오는 애)
+            $("#text").html(hello) ;  // 얘는 setter (값을 보내는 애)
+            
+        })
+    })
+
+</script>
